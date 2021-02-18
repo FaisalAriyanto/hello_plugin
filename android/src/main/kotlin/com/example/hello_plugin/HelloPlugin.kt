@@ -45,8 +45,9 @@ class HelloPlugin : FlutterPlugin, MethodCallHandler, ActivityAware {
         }
     }
 
-    private fun showToast(msg: String) {
-        activity?.let { Toast.makeText(activity, msg, Toast.LENGTH_LONG).show() }
+    private fun showToast(msg: String): Boolean {
+        return activity?.let { Toast.makeText(activity, msg, Toast.LENGTH_LONG).show(); true }
+                ?: false
     }
 
     override fun onDetachedFromEngine(@NonNull binding: FlutterPlugin.FlutterPluginBinding) {
